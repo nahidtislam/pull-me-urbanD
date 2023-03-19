@@ -7,18 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		251F8C2F29C5F4AA00BE8FD7 /* pull_me_urbanDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C2E29C5F4AA00BE8FD7 /* pull_me_urbanDApp.swift */; };
-		251F8C3129C5F4AA00BE8FD7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C3029C5F4AA00BE8FD7 /* ContentView.swift */; };
+		251F8C2F29C5F4AA00BE8FD7 /* PullMeUrbanDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C2E29C5F4AA00BE8FD7 /* PullMeUrbanDApp.swift */; };
+		251F8C3129C5F4AA00BE8FD7 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C3029C5F4AA00BE8FD7 /* ControlView.swift */; };
 		251F8C3329C5F4AB00BE8FD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251F8C3229C5F4AB00BE8FD7 /* Assets.xcassets */; };
 		251F8C3629C5F4AB00BE8FD7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251F8C3529C5F4AB00BE8FD7 /* Preview Assets.xcassets */; };
+		251F8C3D29C5F4F200BE8FD7 /* UDWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C3C29C5F4F200BE8FD7 /* UDWord.swift */; };
+		251F8C3F29C5F70C00BE8FD7 /* WordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C3E29C5F70C00BE8FD7 /* WordCardView.swift */; };
+		251F8C4129C5FC5D00BE8FD7 /* Color+HexStringInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4029C5FC5D00BE8FD7 /* Color+HexStringInit.swift */; };
+		251F8C4529C60EEC00BE8FD7 /* Date+InitFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4429C60EEC00BE8FD7 /* Date+InitFromString.swift */; };
+		251F8C4729C74F4A00BE8FD7 /* UrbanDictAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4629C74F4A00BE8FD7 /* UrbanDictAPI.swift */; };
+		251F8C4929C759C000BE8FD7 /* ControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4829C759C000BE8FD7 /* ControlViewModel.swift */; };
+		251F8C4B29C75D8E00BE8FD7 /* WordPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4A29C75D8E00BE8FD7 /* WordPicker.swift */; };
+		251F8C4D29C761A300BE8FD7 /* wordpicker-list.json in Resources */ = {isa = PBXBuildFile; fileRef = 251F8C4C29C761A200BE8FD7 /* wordpicker-list.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		251F8C2B29C5F4AA00BE8FD7 /* pull me urbanD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pull me urbanD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		251F8C2E29C5F4AA00BE8FD7 /* pull_me_urbanDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pull_me_urbanDApp.swift; sourceTree = "<group>"; };
-		251F8C3029C5F4AA00BE8FD7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		251F8C2E29C5F4AA00BE8FD7 /* PullMeUrbanDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullMeUrbanDApp.swift; sourceTree = "<group>"; };
+		251F8C3029C5F4AA00BE8FD7 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
 		251F8C3229C5F4AB00BE8FD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		251F8C3529C5F4AB00BE8FD7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		251F8C3C29C5F4F200BE8FD7 /* UDWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDWord.swift; sourceTree = "<group>"; };
+		251F8C3E29C5F70C00BE8FD7 /* WordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardView.swift; sourceTree = "<group>"; };
+		251F8C4029C5FC5D00BE8FD7 /* Color+HexStringInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+HexStringInit.swift"; sourceTree = "<group>"; };
+		251F8C4429C60EEC00BE8FD7 /* Date+InitFromString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+InitFromString.swift"; sourceTree = "<group>"; };
+		251F8C4629C74F4A00BE8FD7 /* UrbanDictAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrbanDictAPI.swift; sourceTree = "<group>"; };
+		251F8C4829C759C000BE8FD7 /* ControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewModel.swift; sourceTree = "<group>"; };
+		251F8C4A29C75D8E00BE8FD7 /* WordPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPicker.swift; sourceTree = "<group>"; };
+		251F8C4C29C761A200BE8FD7 /* wordpicker-list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "wordpicker-list.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +51,8 @@
 		251F8C2229C5F4A900BE8FD7 = {
 			isa = PBXGroup;
 			children = (
+				251F8C4429C60EEC00BE8FD7 /* Date+InitFromString.swift */,
+				251F8C4029C5FC5D00BE8FD7 /* Color+HexStringInit.swift */,
 				251F8C2D29C5F4AA00BE8FD7 /* pull me urbanD */,
 				251F8C2C29C5F4AA00BE8FD7 /* Products */,
 			);
@@ -51,10 +69,16 @@
 		251F8C2D29C5F4AA00BE8FD7 /* pull me urbanD */ = {
 			isa = PBXGroup;
 			children = (
-				251F8C2E29C5F4AA00BE8FD7 /* pull_me_urbanDApp.swift */,
-				251F8C3029C5F4AA00BE8FD7 /* ContentView.swift */,
+				251F8C2E29C5F4AA00BE8FD7 /* PullMeUrbanDApp.swift */,
+				251F8C3029C5F4AA00BE8FD7 /* ControlView.swift */,
+				251F8C4829C759C000BE8FD7 /* ControlViewModel.swift */,
 				251F8C3229C5F4AB00BE8FD7 /* Assets.xcassets */,
 				251F8C3429C5F4AB00BE8FD7 /* Preview Content */,
+				251F8C3C29C5F4F200BE8FD7 /* UDWord.swift */,
+				251F8C4A29C75D8E00BE8FD7 /* WordPicker.swift */,
+				251F8C4C29C761A200BE8FD7 /* wordpicker-list.json */,
+				251F8C3E29C5F70C00BE8FD7 /* WordCardView.swift */,
+				251F8C4629C74F4A00BE8FD7 /* UrbanDictAPI.swift */,
 			);
 			path = "pull me urbanD";
 			sourceTree = "<group>";
@@ -127,6 +151,7 @@
 			files = (
 				251F8C3629C5F4AB00BE8FD7 /* Preview Assets.xcassets in Resources */,
 				251F8C3329C5F4AB00BE8FD7 /* Assets.xcassets in Resources */,
+				251F8C4D29C761A300BE8FD7 /* wordpicker-list.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +162,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				251F8C3129C5F4AA00BE8FD7 /* ContentView.swift in Sources */,
-				251F8C2F29C5F4AA00BE8FD7 /* pull_me_urbanDApp.swift in Sources */,
+				251F8C4129C5FC5D00BE8FD7 /* Color+HexStringInit.swift in Sources */,
+				251F8C3129C5F4AA00BE8FD7 /* ControlView.swift in Sources */,
+				251F8C4B29C75D8E00BE8FD7 /* WordPicker.swift in Sources */,
+				251F8C4529C60EEC00BE8FD7 /* Date+InitFromString.swift in Sources */,
+				251F8C2F29C5F4AA00BE8FD7 /* PullMeUrbanDApp.swift in Sources */,
+				251F8C3F29C5F70C00BE8FD7 /* WordCardView.swift in Sources */,
+				251F8C4729C74F4A00BE8FD7 /* UrbanDictAPI.swift in Sources */,
+				251F8C4929C759C000BE8FD7 /* ControlViewModel.swift in Sources */,
+				251F8C3D29C5F4F200BE8FD7 /* UDWord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

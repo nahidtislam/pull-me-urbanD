@@ -1,5 +1,5 @@
 //
-//  pull_me_urbanDApp.swift
+//  PullMeUrbanDApp.swift
 //  pull me urbanD
 //
 //  Created by Nahid Islam on 18/03/2023.
@@ -8,10 +8,11 @@
 import SwiftUI
 
 @main
-struct pull_me_urbanDApp: App {
+struct PullMeUrbanDApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ControlView()
         }
     }
 }
