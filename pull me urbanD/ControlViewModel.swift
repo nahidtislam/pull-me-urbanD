@@ -11,6 +11,8 @@ import SwiftUI
     @Published var words = [UDWord]()
     @Published var errorHappened = false
     
+    
+    @Published var wordsToPick: [UDWord] = []
     @Published var scrollToID: Int?
     
     
@@ -23,11 +25,14 @@ import SwiftUI
                     let word = decoded.list.first else {
                 return
             }
+            let word = foundWords.first!
+            foundWords = foundWords.filter({ $0.word.lowercased() == word.word.lowercased() })
+            if foundWords.count > 1 { wordsToPick = foundWords; return }
             
             if let matching = words.first(where: { $0.defid == word.defid }) {
                 scrollToID = matching.defid
             } else {
-                words.insert(word, at: 0)
+                addedWords.insert(word, at: 0)
             }
         }
         catch {}

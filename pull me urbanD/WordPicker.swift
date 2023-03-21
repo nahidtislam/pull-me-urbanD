@@ -18,21 +18,22 @@ struct WordPicker: View {
     }
     
     var body: some View {
+        VStack {
+            Text("select a definition for **\(wordsToPick.first!.word)**")
+                .font(.title)
+            wordScroll
+        }
+        .padding()
+    }
+    
+    var wordScroll: some View {
         ScrollView {
             ForEach(sortedWords) { word in
-                VStack(alignment: .leading, spacing: 20) {
-                    Text(word.word)
-                        .font(.largeTitle)
-                    Text(word.definition.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: ""))
-                        .font(.caption)
-                    Label("votes: \(word.thumbs_up - word.thumbs_down)", systemImage: "arrow.\(word.thumbs_up >= word.thumbs_down ? "up" : "down").circle")
-                        .foregroundColor(word.thumbs_up >= word.thumbs_down ? .teal : .red)
-                }
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 16).stroke(Color.accentColor))
-                .onTapGesture {
+                Button {
                     selectedWord = word
                 }
+                .buttonStyle(Press())
+
             }
         }
     }

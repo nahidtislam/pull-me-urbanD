@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WordCardView: View {
     
+    let word: UDWord
+    
     enum Rating {
     case like, dislike
         
@@ -29,8 +31,6 @@ struct WordCardView: View {
         }
     }
     
-    let word: UDWord
-    
     var body: some View {
         VStack(alignment: .leading) {
             Section {
@@ -41,11 +41,11 @@ struct WordCardView: View {
 //            Rectangle()
 //                .frame(height: 0.5)
 //                .frame(minWidth: .leastNonzeroMagnitude)
-                Text("example: ")
+            Text("example: ")
                 .font(.caption.bold())
-                    .foregroundColor(.accentColor) +
-            Text(attribute(string: word.example, font: .caption.bold()))
-            .font(.caption)
+                .foregroundColor(.accentColor) +
+                Text(attribute(string: word.example, font: .caption.bold()))
+                    .font(.caption)
             HStack {
                 stat(rating: .like, word.thumbs_up)
 //                    .scaleEffect(ratioScale(rating: .like))
@@ -63,11 +63,27 @@ struct WordCardView: View {
     }
     
     private func attribute(string: String, font: Font) -> AttributedString {
-        var output = AttributedString(string.replacingOccurrences(of: "\r", with: ""))
+        let string = string.replacingOccurrences(of: "\r", with: "")
+//        var live = string
+        var output = AttributedString(string)
         let b = output
         var offsetting = 0
         
         let ranges = string.ranges(of: /\[([^\]]+)\]/)
+        
+//        ranges.forEach { range in
+//            return
+//            let brackted = String(string[range])
+//            let bracketlessIndexes = string.index(range.lowerBound, offsetBy: 1)..<string.index(range.upperBound, offsetBy: -1)
+//            let bracketless = String(string[bracketlessIndexes])
+//
+//            let distToEdited = string.distance(from: live.firstRange(of: brackted)!.lowerBound, to: bracketlessIndexes.lowerBound)
+//
+//            let indexesToFormat = live.index(range.lowerBound, offsetBy: 0)..<string.index(range.upperBound, offsetBy: -2)
+//
+//            live = NSAttributedString(output).string
+//        }
+        
         ranges.forEach { range in
             let lowIndex = string.index(range.lowerBound, offsetBy: -offsetting)
             let upIndex = string.index(range.upperBound, offsetBy: -2 - offsetting)
@@ -78,9 +94,16 @@ struct WordCardView: View {
             output.removeSubrange(up..<output.index(afterCharacter: up))
             
             let newLineCount = string[lowIndex..<upIndex].filter({ $0 == "\n" }).count
+
             offsetting += 2 + newLineCount
             
+            let strInBrackets = string[range]
+                .replacingOccurrences(of: "[", with: "")
+                .replacingOccurrences(of: "]", with: "")
+            
             output[low..<up].font = font
+            output[low..<up].link = UrbanDictAPI.selected(word: strInBrackets).url
+            output[low..<up].foregroundColor = .mint
         }
         
         return output
