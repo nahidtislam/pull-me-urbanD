@@ -37,6 +37,9 @@ struct UDWord: Codable, Identifiable {
     }
 }
 
+extension UDWord: Equatable {
+    
+}
 
 struct ResponseFromUD: Decodable {
     let list: [UDWord]

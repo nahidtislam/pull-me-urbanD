@@ -12,6 +12,11 @@ struct ControlView: View {
     @StateObject var vm = ControlViewModel()
     
     @State private var selectedWord = ""
+    @State private var showingWordPicker = false
+    @State private var selectedWordFromPicker: UDWord?
+    
+    @State private var lineGradFlipped = false
+    @State private var lineGradColors: [Color] = [.blue, .cyan, .mint, .yellow]
     
     var body: some View {
         VStack {
@@ -41,10 +46,10 @@ struct ControlView: View {
                     }
                 }
             ScrollViewReader { proxy in
-                ForEach(vm.words) { word in
-                    WordCardView(word: word)
-                        .padding()
-                }
+                list(words: vm.addedWords)
+                if vm.addedWords.count > 0 { randomSep }
+                if vm.randomWords.count == 0 { Text("randomising words") }
+                list(words: vm.randomWords)
                 .onChange(of: vm.scrollToID) { newValue in
                     guard let newValue else { return }
                     withAnimation(.spring()) {
@@ -62,6 +67,16 @@ struct ControlView: View {
                 }
             }
         }
+        .onChange(of: vm.wordsToPick) { newValue in
+            showingWordPicker = newValue.count > 0
+        }
+        .sheet(isPresented: $showingWordPicker) {
+            if vm.wordsToPick.count > 0 { vm.wordsToPick.removeAll() }
+        } content: {
+            WordPicker(wordsToPick: vm.wordsToPick, selectedWord: $selectedWordFromPicker)
+                .edgesIgnoringSafeArea(.all)
+        }
+        .onChange(of: selectedWordFromPicker, perform: vm.insertSelected)
     }
     
     private var errorDisplay: some View {
@@ -77,8 +92,24 @@ struct ControlView: View {
     
     private func refreshWords() async {
         vm.errorHappened = false
-        vm.words.removeAll()
+        vm.randomWords.removeAll()
         await vm.loadRandomWords()
+    }
+    
+    func list(words: [UDWord]) -> ForEach<[UDWord], Int, some View> {
+        ForEach(words) { word in
+            WordCardView(word: word)
+                .padding()
+        }
+    }
+    
+    var randomSep: some View {
+        RoundedRectangle(cornerRadius: 8, style: .continuous)
+            .fill(LinearGradient(colors: lineGradColors, startPoint: lineGradFlipped ? .trailing : .leading, endPoint: lineGradFlipped ? .leading : .trailing))
+            .padding()
+            .onAppear {
+                withAnimation(.easeIn(duration: 5).repeatForever()) { lineGradColors.shuffle(); lineGradFlipped.toggle() }
+            }
     }
 }
 

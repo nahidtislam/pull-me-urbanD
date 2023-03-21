@@ -44,11 +44,21 @@ import SwiftUI
                 return
             }
             
-            words = decoded.list
+            randomWords = decoded.list
             errorHappened = false
         }
         catch {
             errorHappened = true
+        }
+    }
+    
+    func insertSelected(newWord: UDWord?) {
+        guard let newWord else { return }
+        wordsToPick.removeAll()
+        if let existingID = words.first(where: { $0 == newWord })?.defid {
+            scrollToID = existingID
+        } else {
+            addedWords.insert(newWord, at: 0)
         }
     }
 }
