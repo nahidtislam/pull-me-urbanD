@@ -8,7 +8,9 @@
 import SwiftUI
 
 @MainActor class ControlViewModel: ObservableObject {
-    @Published var words = [UDWord]()
+    @Published var randomWords = [UDWord]()
+    @Published var addedWords = [UDWord]()
+    
     @Published var errorHappened = false
     
     
@@ -16,13 +18,15 @@ import SwiftUI
     @Published var scrollToID: Int?
     
     
+    var words: [UDWord] { addedWords + randomWords }
+    
     func load(word: String) async {
         let url = UrbanDictAPI.selected(word: word).url
         
         do {
             let data = try await URLSession.shared.data(from: url).0
-            guard let decoded = try? JSONDecoder().decode(ResponseFromUD.self, from: data),
-                    let word = decoded.list.first else {
+            guard var foundWords = try? JSONDecoder().decode(ResponseFromUD.self, from: data).list,
+            !foundWords.isEmpty else {
                 return
             }
             let word = foundWords.first!
