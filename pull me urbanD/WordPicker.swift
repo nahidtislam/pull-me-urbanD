@@ -31,10 +31,48 @@ struct WordPicker: View {
             ForEach(sortedWords) { word in
                 Button {
                     selectedWord = word
+                } label: {
+                    display(word: word)
                 }
                 .buttonStyle(Press())
 
             }
+        }
+    }
+    
+    private func display(word: UDWord) -> some View {
+        VStack(alignment: .leading, spacing: 20) {
+            Text(word.word)
+                .font(.largeTitle)
+                .foregroundColor(.primary)
+            Text(word.definition.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: ""))
+                .font(.caption)
+                .foregroundColor(.primary)
+            Label("votes: \(word.thumbs_up - word.thumbs_down)", systemImage: "arrow.\(word.thumbs_up >= word.thumbs_down ? "up" : "down").circle")
+                .foregroundColor(word.thumbs_up >= word.thumbs_down ? .teal : .red)
+        }
+        .padding()
+        .background(RoundedRectangle(cornerRadius: 16).stroke(Color.accentColor))
+    }
+    
+    struct Press: ButtonStyle {
+        
+        private func scale(pressed: Bool) -> CGSize {
+            let len = pressed ? 0.8 : 1
+            return .init(width: len, height: len)
+        }
+        
+        private func rotation(pressed: Bool) -> Angle {
+            return .init(radians: pressed ? .pi / 6 : 0)
+        }
+        
+        func makeBody(configuration: Configuration) -> some View {
+            configuration.label
+                .scaleEffect(scale(pressed: configuration.isPressed))
+                .opacity(configuration.isPressed ? 0.8 : 1)
+                .saturation(configuration.isPressed ? 0.5 : 1)
+                .rotation3DEffect(rotation(pressed: configuration.isPressed), axis: (x: -0.1, y: 1, z: 0.2))
+                .animation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0.8), value: configuration.isPressed)
         }
     }
 }
