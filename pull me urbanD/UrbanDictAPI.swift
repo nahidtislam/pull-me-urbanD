@@ -21,7 +21,7 @@ enum UrbanDictAPI {
         return c.url!
     }
     
-    var slash: String {
+    private var slash: String {
         switch self {
         case .random:
             return "/v0/random"
@@ -30,7 +30,7 @@ enum UrbanDictAPI {
         }
     }
     
-    var query: URLQueryItem? {
+    private var query: URLQueryItem? {
         switch self {
         case .random:
             return nil

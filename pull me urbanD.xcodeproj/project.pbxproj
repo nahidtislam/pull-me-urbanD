@@ -19,7 +19,6 @@
 		251F8C4929C759C000BE8FD7 /* ControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4829C759C000BE8FD7 /* ControlViewModel.swift */; };
 		251F8C4B29C75D8E00BE8FD7 /* WordPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4A29C75D8E00BE8FD7 /* WordPicker.swift */; };
 		251F8C4D29C761A300BE8FD7 /* wordpicker-list.json in Resources */ = {isa = PBXBuildFile; fileRef = 251F8C4C29C761A200BE8FD7 /* wordpicker-list.json */; };
-		251F8C4F29C9187300BE8FD7 /* Shape+AnimatableGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4E29C9187300BE8FD7 /* Shape+AnimatableGradient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +35,6 @@
 		251F8C4829C759C000BE8FD7 /* ControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewModel.swift; sourceTree = "<group>"; };
 		251F8C4A29C75D8E00BE8FD7 /* WordPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPicker.swift; sourceTree = "<group>"; };
 		251F8C4C29C761A200BE8FD7 /* wordpicker-list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "wordpicker-list.json"; sourceTree = "<group>"; };
-		251F8C4E29C9187300BE8FD7 /* Shape+AnimatableGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape+AnimatableGradient.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +79,6 @@
 				251F8C4C29C761A200BE8FD7 /* wordpicker-list.json */,
 				251F8C3E29C5F70C00BE8FD7 /* WordCardView.swift */,
 				251F8C4629C74F4A00BE8FD7 /* UrbanDictAPI.swift */,
-				251F8C4E29C9187300BE8FD7 /* Shape+AnimatableGradient.swift */,
 			);
 			path = "pull me urbanD";
 			sourceTree = "<group>";
@@ -168,7 +165,6 @@
 				251F8C4129C5FC5D00BE8FD7 /* Color+HexStringInit.swift in Sources */,
 				251F8C3129C5F4AA00BE8FD7 /* ControlView.swift in Sources */,
 				251F8C4B29C75D8E00BE8FD7 /* WordPicker.swift in Sources */,
-				251F8C4F29C9187300BE8FD7 /* Shape+AnimatableGradient.swift in Sources */,
 				251F8C4529C60EEC00BE8FD7 /* Date+InitFromString.swift in Sources */,
 				251F8C2F29C5F4AA00BE8FD7 /* PullMeUrbanDApp.swift in Sources */,
 				251F8C3F29C5F70C00BE8FD7 /* WordCardView.swift in Sources */,
