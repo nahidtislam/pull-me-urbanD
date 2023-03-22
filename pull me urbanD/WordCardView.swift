@@ -140,7 +140,7 @@ struct WordCardView: View {
 
 struct WordCardView_Previews: PreviewProvider {
     
-    static let egWord = UDWord(defid: 679, word: "nice", definition: "this is a \"nice\" word", example: "WOW! This word is very nice", thumbs_up: 67567, thumbs_down: 2, current_vote: "", written_on: ".now", author: "swioft", permalink: ".downloadsDirectory")
+    static let egWord = UDWord(defid: 679, word: "nice", definition: "this is a \"nice\" word", example: "WOW! This [word] is very nice", thumbs_up: 67567, thumbs_down: 2, current_vote: "", written_on: "2023-01-19T00:09:10.123Z", author: "swioft", permalink: ".downloadsDirectory")
     
     static var previews: some View {
         WordCardView(word: Self.egWord)
