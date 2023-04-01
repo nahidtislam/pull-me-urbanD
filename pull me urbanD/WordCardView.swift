@@ -58,8 +58,11 @@ struct WordCardView: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 30, style: .circular)
+//                .stroke()
                 .stroke(style: .init(lineWidth: 2, lineCap: .butt, lineJoin: .round, dash: [0, 5, 8]))
+//                .background(RoundedRectangle(cornerRadius: 30, style: .circular).foregroundColor(Color(uiColor: .systemBackground))).shadow(color: .gray.opacity(0.3), radius: 14)
         )
+        
     }
     
     private func attribute(string: String, font: Font) -> AttributedString {

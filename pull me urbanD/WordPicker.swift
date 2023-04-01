@@ -77,16 +77,16 @@ struct WordPicker: View {
     }
 }
 
-struct WordPicker_Previews: PreviewProvider {
-    static func egWords() -> [UDWord] {
-        let url = Bundle.main.url(forResource: "wordpicker-list", withExtension: "json")!
-        guard let str = try? String(contentsOf: url) else { return [] }
-        let data = str.data(using: .utf8)!
-        
-        return try! JSONDecoder().decode(ResponseFromUD.self, from: data).list
-    }
-    
-    static var previews: some View {
-        WordPicker(wordsToPick: Self.egWords(), selectedWord: .constant(nil))
-    }
-}
+//struct WordPicker_Previews: PreviewProvider {
+//    static func egWords() -> [UDWord] {
+//        let url = Bundle.main.url(forResource: "wordpicker-list", withExtension: "json")!
+//        guard let str = try? String(contentsOf: url) else { return [] }
+//        let data = str.data(using: .utf8)!
+//        
+//        return try! JSONDecoder().decode(ResponseFromUD.self, from: data).list
+//    }
+//    
+//    static var previews: some View {
+//        WordPicker(wordsToPick: Self.egWords(), selectedWord: .constant(nil))
+//    }
+//}

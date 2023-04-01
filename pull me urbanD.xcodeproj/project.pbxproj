@@ -7,38 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		251F8C2F29C5F4AA00BE8FD7 /* PullMeUrbanDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C2E29C5F4AA00BE8FD7 /* PullMeUrbanDApp.swift */; };
-		251F8C3129C5F4AA00BE8FD7 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C3029C5F4AA00BE8FD7 /* ControlView.swift */; };
-		251F8C3329C5F4AB00BE8FD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251F8C3229C5F4AB00BE8FD7 /* Assets.xcassets */; };
-		251F8C3629C5F4AB00BE8FD7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251F8C3529C5F4AB00BE8FD7 /* Preview Assets.xcassets */; };
-		251F8C3D29C5F4F200BE8FD7 /* UDWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C3C29C5F4F200BE8FD7 /* UDWord.swift */; };
-		251F8C3F29C5F70C00BE8FD7 /* WordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C3E29C5F70C00BE8FD7 /* WordCardView.swift */; };
-		251F8C4129C5FC5D00BE8FD7 /* Color+HexStringInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4029C5FC5D00BE8FD7 /* Color+HexStringInit.swift */; };
-		251F8C4529C60EEC00BE8FD7 /* Date+InitFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4429C60EEC00BE8FD7 /* Date+InitFromString.swift */; };
-		251F8C4729C74F4A00BE8FD7 /* UrbanDictAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4629C74F4A00BE8FD7 /* UrbanDictAPI.swift */; };
-		251F8C4929C759C000BE8FD7 /* ControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4829C759C000BE8FD7 /* ControlViewModel.swift */; };
-		251F8C4B29C75D8E00BE8FD7 /* WordPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F8C4A29C75D8E00BE8FD7 /* WordPicker.swift */; };
-		251F8C4D29C761A300BE8FD7 /* wordpicker-list.json in Resources */ = {isa = PBXBuildFile; fileRef = 251F8C4C29C761A200BE8FD7 /* wordpicker-list.json */; };
+		2582A8B129CE752800546F15 /* Date+InitFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582A8AF29CE752700546F15 /* Date+InitFromString.swift */; };
+		2582A8B229CE752800546F15 /* Color+HexStringInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582A8B029CE752800546F15 /* Color+HexStringInit.swift */; };
+		2582A8BA29CE753900546F15 /* UDWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582A8B429CE753900546F15 /* UDWord.swift */; };
+		2582A8BB29CE753900546F15 /* UrbanDictAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582A8B529CE753900546F15 /* UrbanDictAPI.swift */; };
+		2582A8BC29CE753900546F15 /* WordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582A8B629CE753900546F15 /* WordCardView.swift */; };
+		2582A8BE29CE753900546F15 /* WordPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582A8B829CE753900546F15 /* WordPicker.swift */; };
+		2582A8C029CE754600546F15 /* ControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582A8BF29CE754600546F15 /* ControlViewModel.swift */; };
+		2588FB1229CE74A200B62015 /* PullMeUrbanDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2588FB1129CE74A200B62015 /* PullMeUrbanDApp.swift */; };
+		2588FB1429CE74A200B62015 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2588FB1329CE74A200B62015 /* ControlView.swift */; };
+		2588FB1629CE74A300B62015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2588FB1529CE74A300B62015 /* Assets.xcassets */; };
+		2588FB1929CE74A300B62015 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2588FB1829CE74A300B62015 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		251F8C2B29C5F4AA00BE8FD7 /* pull me urbanD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pull me urbanD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		251F8C2E29C5F4AA00BE8FD7 /* PullMeUrbanDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullMeUrbanDApp.swift; sourceTree = "<group>"; };
-		251F8C3029C5F4AA00BE8FD7 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
-		251F8C3229C5F4AB00BE8FD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		251F8C3529C5F4AB00BE8FD7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		251F8C3C29C5F4F200BE8FD7 /* UDWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDWord.swift; sourceTree = "<group>"; };
-		251F8C3E29C5F70C00BE8FD7 /* WordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardView.swift; sourceTree = "<group>"; };
-		251F8C4029C5FC5D00BE8FD7 /* Color+HexStringInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+HexStringInit.swift"; sourceTree = "<group>"; };
-		251F8C4429C60EEC00BE8FD7 /* Date+InitFromString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+InitFromString.swift"; sourceTree = "<group>"; };
-		251F8C4629C74F4A00BE8FD7 /* UrbanDictAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrbanDictAPI.swift; sourceTree = "<group>"; };
-		251F8C4829C759C000BE8FD7 /* ControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewModel.swift; sourceTree = "<group>"; };
-		251F8C4A29C75D8E00BE8FD7 /* WordPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPicker.swift; sourceTree = "<group>"; };
-		251F8C4C29C761A200BE8FD7 /* wordpicker-list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "wordpicker-list.json"; sourceTree = "<group>"; };
+		2582A8AF29CE752700546F15 /* Date+InitFromString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+InitFromString.swift"; sourceTree = "<group>"; };
+		2582A8B029CE752800546F15 /* Color+HexStringInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+HexStringInit.swift"; sourceTree = "<group>"; };
+		2582A8B429CE753900546F15 /* UDWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UDWord.swift; sourceTree = "<group>"; };
+		2582A8B529CE753900546F15 /* UrbanDictAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrbanDictAPI.swift; sourceTree = "<group>"; };
+		2582A8B629CE753900546F15 /* WordCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCardView.swift; sourceTree = "<group>"; };
+		2582A8B829CE753900546F15 /* WordPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordPicker.swift; sourceTree = "<group>"; };
+		2582A8BF29CE754600546F15 /* ControlViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlViewModel.swift; sourceTree = "<group>"; };
+		2588FB0E29CE74A200B62015 /* pull me urbanD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pull me urbanD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2588FB1129CE74A200B62015 /* PullMeUrbanDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullMeUrbanDApp.swift; sourceTree = "<group>"; };
+		2588FB1329CE74A200B62015 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
+		2588FB1529CE74A300B62015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2588FB1829CE74A300B62015 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		251F8C2829C5F4AA00BE8FD7 /* Frameworks */ = {
+		2588FB0B29CE74A200B62015 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -48,45 +46,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		251F8C2229C5F4A900BE8FD7 = {
+		2588FB0529CE74A200B62015 = {
 			isa = PBXGroup;
 			children = (
-				251F8C4429C60EEC00BE8FD7 /* Date+InitFromString.swift */,
-				251F8C4029C5FC5D00BE8FD7 /* Color+HexStringInit.swift */,
-				251F8C2D29C5F4AA00BE8FD7 /* pull me urbanD */,
-				251F8C2C29C5F4AA00BE8FD7 /* Products */,
+				2582A8B029CE752800546F15 /* Color+HexStringInit.swift */,
+				2582A8AF29CE752700546F15 /* Date+InitFromString.swift */,
+				2588FB1029CE74A200B62015 /* pull me urbanD */,
+				2588FB0F29CE74A200B62015 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		251F8C2C29C5F4AA00BE8FD7 /* Products */ = {
+		2588FB0F29CE74A200B62015 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				251F8C2B29C5F4AA00BE8FD7 /* pull me urbanD.app */,
+				2588FB0E29CE74A200B62015 /* pull me urbanD.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		251F8C2D29C5F4AA00BE8FD7 /* pull me urbanD */ = {
+		2588FB1029CE74A200B62015 /* pull me urbanD */ = {
 			isa = PBXGroup;
 			children = (
-				251F8C2E29C5F4AA00BE8FD7 /* PullMeUrbanDApp.swift */,
-				251F8C3029C5F4AA00BE8FD7 /* ControlView.swift */,
-				251F8C4829C759C000BE8FD7 /* ControlViewModel.swift */,
-				251F8C3229C5F4AB00BE8FD7 /* Assets.xcassets */,
-				251F8C3429C5F4AB00BE8FD7 /* Preview Content */,
-				251F8C3C29C5F4F200BE8FD7 /* UDWord.swift */,
-				251F8C4A29C75D8E00BE8FD7 /* WordPicker.swift */,
-				251F8C4C29C761A200BE8FD7 /* wordpicker-list.json */,
-				251F8C3E29C5F70C00BE8FD7 /* WordCardView.swift */,
-				251F8C4629C74F4A00BE8FD7 /* UrbanDictAPI.swift */,
+				2588FB1329CE74A200B62015 /* ControlView.swift */,
+				2582A8BF29CE754600546F15 /* ControlViewModel.swift */,
+				2588FB1129CE74A200B62015 /* PullMeUrbanDApp.swift */,
+				2582A8B429CE753900546F15 /* UDWord.swift */,
+				2582A8B529CE753900546F15 /* UrbanDictAPI.swift */,
+				2582A8B629CE753900546F15 /* WordCardView.swift */,
+				2582A8B829CE753900546F15 /* WordPicker.swift */,
+				2588FB1529CE74A300B62015 /* Assets.xcassets */,
+				2588FB1729CE74A300B62015 /* Preview Content */,
 			);
 			path = "pull me urbanD";
 			sourceTree = "<group>";
 		};
-		251F8C3429C5F4AB00BE8FD7 /* Preview Content */ = {
+		2588FB1729CE74A300B62015 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				251F8C3529C5F4AB00BE8FD7 /* Preview Assets.xcassets */,
+				2588FB1829CE74A300B62015 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -94,13 +91,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		251F8C2A29C5F4AA00BE8FD7 /* pull me urbanD */ = {
+		2588FB0D29CE74A200B62015 /* pull me urbanD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 251F8C3929C5F4AB00BE8FD7 /* Build configuration list for PBXNativeTarget "pull me urbanD" */;
+			buildConfigurationList = 2588FB1C29CE74A300B62015 /* Build configuration list for PBXNativeTarget "pull me urbanD" */;
 			buildPhases = (
-				251F8C2729C5F4AA00BE8FD7 /* Sources */,
-				251F8C2829C5F4AA00BE8FD7 /* Frameworks */,
-				251F8C2929C5F4AA00BE8FD7 /* Resources */,
+				2588FB0A29CE74A200B62015 /* Sources */,
+				2588FB0B29CE74A200B62015 /* Frameworks */,
+				2588FB0C29CE74A200B62015 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -108,25 +105,25 @@
 			);
 			name = "pull me urbanD";
 			productName = "pull me urbanD";
-			productReference = 251F8C2B29C5F4AA00BE8FD7 /* pull me urbanD.app */;
+			productReference = 2588FB0E29CE74A200B62015 /* pull me urbanD.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		251F8C2329C5F4A900BE8FD7 /* Project object */ = {
+		2588FB0629CE74A200B62015 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					251F8C2A29C5F4AA00BE8FD7 = {
+					2588FB0D29CE74A200B62015 = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
-			buildConfigurationList = 251F8C2629C5F4AA00BE8FD7 /* Build configuration list for PBXProject "pull me urbanD" */;
+			buildConfigurationList = 2588FB0929CE74A200B62015 /* Build configuration list for PBXProject "pull me urbanD" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -134,50 +131,49 @@
 				en,
 				Base,
 			);
-			mainGroup = 251F8C2229C5F4A900BE8FD7;
-			productRefGroup = 251F8C2C29C5F4AA00BE8FD7 /* Products */;
+			mainGroup = 2588FB0529CE74A200B62015;
+			productRefGroup = 2588FB0F29CE74A200B62015 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				251F8C2A29C5F4AA00BE8FD7 /* pull me urbanD */,
+				2588FB0D29CE74A200B62015 /* pull me urbanD */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		251F8C2929C5F4AA00BE8FD7 /* Resources */ = {
+		2588FB0C29CE74A200B62015 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				251F8C3629C5F4AB00BE8FD7 /* Preview Assets.xcassets in Resources */,
-				251F8C3329C5F4AB00BE8FD7 /* Assets.xcassets in Resources */,
-				251F8C4D29C761A300BE8FD7 /* wordpicker-list.json in Resources */,
+				2588FB1929CE74A300B62015 /* Preview Assets.xcassets in Resources */,
+				2588FB1629CE74A300B62015 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		251F8C2729C5F4AA00BE8FD7 /* Sources */ = {
+		2588FB0A29CE74A200B62015 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				251F8C4129C5FC5D00BE8FD7 /* Color+HexStringInit.swift in Sources */,
-				251F8C3129C5F4AA00BE8FD7 /* ControlView.swift in Sources */,
-				251F8C4B29C75D8E00BE8FD7 /* WordPicker.swift in Sources */,
-				251F8C4529C60EEC00BE8FD7 /* Date+InitFromString.swift in Sources */,
-				251F8C2F29C5F4AA00BE8FD7 /* PullMeUrbanDApp.swift in Sources */,
-				251F8C3F29C5F70C00BE8FD7 /* WordCardView.swift in Sources */,
-				251F8C4729C74F4A00BE8FD7 /* UrbanDictAPI.swift in Sources */,
-				251F8C4929C759C000BE8FD7 /* ControlViewModel.swift in Sources */,
-				251F8C3D29C5F4F200BE8FD7 /* UDWord.swift in Sources */,
+				2588FB1429CE74A200B62015 /* ControlView.swift in Sources */,
+				2582A8BE29CE753900546F15 /* WordPicker.swift in Sources */,
+				2582A8BA29CE753900546F15 /* UDWord.swift in Sources */,
+				2582A8C029CE754600546F15 /* ControlViewModel.swift in Sources */,
+				2588FB1229CE74A200B62015 /* PullMeUrbanDApp.swift in Sources */,
+				2582A8B229CE752800546F15 /* Color+HexStringInit.swift in Sources */,
+				2582A8BB29CE753900546F15 /* UrbanDictAPI.swift in Sources */,
+				2582A8BC29CE753900546F15 /* WordCardView.swift in Sources */,
+				2582A8B129CE752800546F15 /* Date+InitFromString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		251F8C3729C5F4AB00BE8FD7 /* Debug */ = {
+		2588FB1A29CE74A300B62015 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -237,7 +233,7 @@
 			};
 			name = Debug;
 		};
-		251F8C3829C5F4AB00BE8FD7 /* Release */ = {
+		2588FB1B29CE74A300B62015 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -291,7 +287,7 @@
 			};
 			name = Release;
 		};
-		251F8C3A29C5F4AB00BE8FD7 /* Debug */ = {
+		2588FB1D29CE74A300B62015 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -320,7 +316,7 @@
 			};
 			name = Debug;
 		};
-		251F8C3B29C5F4AB00BE8FD7 /* Release */ = {
+		2588FB1E29CE74A300B62015 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -352,25 +348,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		251F8C2629C5F4AA00BE8FD7 /* Build configuration list for PBXProject "pull me urbanD" */ = {
+		2588FB0929CE74A200B62015 /* Build configuration list for PBXProject "pull me urbanD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				251F8C3729C5F4AB00BE8FD7 /* Debug */,
-				251F8C3829C5F4AB00BE8FD7 /* Release */,
+				2588FB1A29CE74A300B62015 /* Debug */,
+				2588FB1B29CE74A300B62015 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		251F8C3929C5F4AB00BE8FD7 /* Build configuration list for PBXNativeTarget "pull me urbanD" */ = {
+		2588FB1C29CE74A300B62015 /* Build configuration list for PBXNativeTarget "pull me urbanD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				251F8C3A29C5F4AB00BE8FD7 /* Debug */,
-				251F8C3B29C5F4AB00BE8FD7 /* Release */,
+				2588FB1D29CE74A300B62015 /* Debug */,
+				2588FB1E29CE74A300B62015 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 251F8C2329C5F4A900BE8FD7 /* Project object */;
+	rootObject = 2588FB0629CE74A200B62015 /* Project object */;
 }

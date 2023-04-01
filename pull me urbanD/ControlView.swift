@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ControlView: View {
     
+//    @Environment(\.openURL) var urlHandler
+    
     @StateObject var vm = ControlViewModel()
     
     @State private var selectedWord = ""
@@ -26,6 +28,7 @@ struct ControlView: View {
                 Text("loading...")
             } else {
                 theWords
+                    .environment(\.openURL,  OpenURLAction(handler: vm.pop))
             }
         }
         .task {
@@ -34,6 +37,29 @@ struct ControlView: View {
         .refreshable {
             await vm.loadRandomWords()
         }
+        .overlay {
+            if let overlayed = vm.poppedWord {
+                overlay(word: overlayed)
+            }
+        }
+    }
+    
+    private func overlay(word: UDWord) -> some View {
+        ZStack {
+            Color.primary
+                .opacity(0.2)
+                .ignoresSafeArea()
+                .onTapGesture {
+                    vm.poppedWord = nil
+                }
+            WordCardView(word: word)
+                .environment(\.openURL,  OpenURLAction(handler: vm.pop))
+                .background(Material.regular)
+                .cornerRadius(30)
+                .padding(30)
+        }
+        .animation(.spring(), value: vm.poppedWord == nil)
+        .transition(.move(edge: .bottom))
     }
     
     private var theWords: some View {

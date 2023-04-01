@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UDWord: Codable, Identifiable {
+struct UDWord: Codable, Identifiable, Equatable {
     let defid: Int
     
     let word: String
@@ -35,10 +35,6 @@ struct UDWord: Codable, Identifiable {
     var overallVotes: Int {
         thumbs_up - thumbs_down
     }
-}
-
-extension UDWord: Equatable {
-    
 }
 
 struct ResponseFromUD: Decodable {
