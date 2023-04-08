@@ -19,11 +19,11 @@ struct WordPicker: View {
     
     var body: some View {
         VStack {
-            Text("select a definition for **\(wordsToPick.first!.word)**")
+            Text("select a definition for **\(sortedWords.first!.word)**")
                 .font(.title)
+                .padding()
             wordScroll
         }
-        .padding()
     }
     
     var wordScroll: some View {
@@ -33,6 +33,7 @@ struct WordPicker: View {
                     selectedWord = word
                 } label: {
                     display(word: word)
+                        .padding()
                 }
                 .buttonStyle(Press())
 
@@ -52,7 +53,7 @@ struct WordPicker: View {
                 .foregroundColor(word.thumbs_up >= word.thumbs_down ? .teal : .red)
         }
         .padding()
-        .background(RoundedRectangle(cornerRadius: 16).stroke(Color.accentColor))
+        .background(RoundedRectangle(cornerRadius: 16).stroke(Color.accentColor, lineWidth: 3))
     }
     
     struct Press: ButtonStyle {
