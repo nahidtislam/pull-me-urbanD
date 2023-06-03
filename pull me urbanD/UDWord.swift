@@ -15,11 +15,11 @@ struct UDWord: Codable, Identifiable, Equatable {
     
     let example: String
     
-    let thumbs_up: Int
-    let thumbs_down: Int
-    let current_vote: String // whyt's this a string
+    let thumbsUp: Int
+    let thumbsDown: Int
+    let currentVote: String // why's this a string
     
-    let written_on: String
+    let writtenOn: String
     
     let author: String
     
@@ -28,12 +28,12 @@ struct UDWord: Codable, Identifiable, Equatable {
     
     var id: Int { defid }
     
-    var written_on_date: Date {
-        .init(written_on, withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
+    var writtenOnDate: Date {
+        .init(writtenOn, withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
     }
     
     var overallVotes: Int {
-        thumbs_up - thumbs_down
+        thumbsUp - thumbsDown
     }
 }
 

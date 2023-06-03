@@ -20,6 +20,8 @@ struct ControlView: View {
     @State private var lineGradFlipped = false
     @State private var lineGradColors: [Color] = [.blue, .cyan, .mint, .yellow]
     
+    @State private var showDisallowedWordsPrompt = false
+    
     var body: some View {
         VStack {
             if vm.errorHappened {
@@ -29,6 +31,17 @@ struct ControlView: View {
             } else {
                 theWords
                     .environment(\.openURL,  OpenURLAction(handler: vm.pop))
+                    .sheet(item: $vm.poppedWord) {
+//                        vm.poppedWord = nil
+                    } content: { popped in
+                        WordCardView(word: popped, bordered: false)
+                            .environment(\.openURL,  OpenURLAction(handler: vm.pop))
+                            .padding()
+                            .presentationDetents([.height(400)])
+                    }
+                    .alert(isPresented: $showDisallowedWordsPrompt) {
+                        Alert(title: Text("NOOOOO"), message: Text("this word is not allowed!\ndo NOT use that word again"), dismissButton: .default(Text("i'm sorry")))
+                    }
             }
         }
         .task {
@@ -37,29 +50,6 @@ struct ControlView: View {
         .refreshable {
             await vm.loadRandomWords()
         }
-        .overlay {
-            if let overlayed = vm.poppedWord {
-                overlay(word: overlayed)
-            }
-        }
-    }
-    
-    private func overlay(word: UDWord) -> some View {
-        ZStack {
-            Color.primary
-                .opacity(0.2)
-                .ignoresSafeArea()
-                .onTapGesture {
-                    vm.poppedWord = nil
-                }
-            WordCardView(word: word)
-                .environment(\.openURL,  OpenURLAction(handler: vm.pop))
-                .background(Material.regular)
-                .cornerRadius(30)
-                .padding(30)
-        }
-        .animation(.spring(), value: vm.poppedWord == nil)
-        .transition(.move(edge: .bottom))
     }
     
     private var theWords: some View {
@@ -67,6 +57,11 @@ struct ControlView: View {
             TextField("search word", text: $selectedWord)
                 .textFieldStyle(.roundedBorder).padding()
                 .onSubmit {
+                    if vm.censored && vm.censoredWords.contains(selectedWord) {
+                        showDisallowedWordsPrompt = true
+                        return
+                    }
+                    
                     Task {
                         await vm.load(word: selectedWord)
                     }

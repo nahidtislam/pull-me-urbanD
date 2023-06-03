@@ -15,13 +15,13 @@ enum UrbanDictAPI {
         var c = URLComponents()
         c.scheme = "https"
         c.host = "api.urbandictionary.com"
-        c.path = slash
+        c.path = preSlug
         c.queryItem = query
         
         return c.url!
     }
     
-    private var slash: String {
+    private var preSlug: String {
         switch self {
         case .random:
             return "/v0/random"
@@ -37,6 +37,21 @@ enum UrbanDictAPI {
         case .selected(let word):
             return .init(name: "term", value: word)
         }
+    }
+    
+    func retrieve() async throws -> ResponseFromUD {
+        try await UrbanDictAPI.retrieve(using: url)
+    }
+    
+    static func retrieve(using url: URL) async throws -> ResponseFromUD {
+        let data = try await URLSession.shared.data(from: url).0
+        let decoder: JSONDecoder = {
+            let jd = JSONDecoder()
+            jd.keyDecodingStrategy = .convertFromSnakeCase
+            return jd
+        }()
+        
+        return try decoder.decode(ResponseFromUD.self, from: data)
     }
 }
 

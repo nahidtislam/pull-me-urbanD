@@ -49,8 +49,8 @@ struct WordPicker: View {
             Text(word.definition.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: ""))
                 .font(.caption)
                 .foregroundColor(.primary)
-            Label("votes: \(word.thumbs_up - word.thumbs_down)", systemImage: "arrow.\(word.thumbs_up >= word.thumbs_down ? "up" : "down").circle")
-                .foregroundColor(word.thumbs_up >= word.thumbs_down ? .teal : .red)
+            Label("votes: \(word.thumbsUp - word.thumbsDown)", systemImage: "arrow.\(word.thumbsUp >= word.thumbsDown ? "up" : "down").circle")
+                .foregroundColor(word.thumbsUp >= word.thumbsDown ? .teal : .red)
         }
         .padding()
         .background(RoundedRectangle(cornerRadius: 16).stroke(Color.accentColor, lineWidth: 3))
