@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@MainActor class ControlViewModel: ObservableObject {
+class ControlViewModel: ObservableObject {
     @Published var randomWords = [UDWord]()
     @Published var addedWords = [UDWord]()
     
@@ -18,54 +18,43 @@ import SwiftUI
     @Published var poppedWord: UDWord?
     @Published var scrollToID: Int?
     
-    let censored = true
+    var censored: Bool {
+        let cal = Calendar.current
+        let now = Date.now
+        
+        let day = cal.component(.day, from: now)
+        let month = cal.component(.month, from: now)
+        
+        return day == 1 && month == 4 // april fools :)
+    }
     let censoredWords: Set = ["this is a bad word", "very bad bad word", "nil", "null"]
     
     
     var words: [UDWord] { addedWords + randomWords }
     
     func load(word: String, getAll: Bool = true) async {
-        let url = UrbanDictAPI.selected(word: word).url
-//        guard let downloaded = await downloadWords(from: url) else {
-//            print("oh no")
-//            return
-//        }
-        guard let downloaded = try? await UrbanDictAPI.selected(word: word).retrieve() else {
+        let apiCall = UrbanDictAPI.selected(word: word)
+        
+        guard let downloaded = try? await apiCall.retrieve() else {
             print("oh no")
             return
         }
         handleLoaded(words: downloaded.list, forceSingle: !getAll)
     }
-    
-//    private func download(word: String) async -> [UDWord]? {
-//        let url = UrbanDictAPI.selected(word: word).url
-//
-//        return await downloadWords(from: url)
-//    }
-//
-//    private func downloadWords(from path: URL) async -> [UDWord]? {
-//        do {
-//            let data = try await URLSession.shared.data(from: path).0
-//            let foundWords = try JSONDecoder().decode(ResponseFromUD.self, from: data).list
-//
-//            return foundWords.count > 0 ? foundWords : nil
-//        }
-//        catch {
-//            return nil
-//        }
-//    }
         
     func pop(url: URL) -> OpenURLAction.Result {
-        Task(priority: .userInitiated) {
-            poppedWord = try? await UrbanDictAPI.retrieve(using: url).list.first
+        DispatchQueue.main.async { [weak self] in
+            Task(priority: .userInitiated) {
+                self?.poppedWord = try? await UrbanDictAPI.retrieve(using: url).list.first
+            }
         }
         
-        return poppedWord == nil ? .discarded : .handled
+        return .handled
     }
     
     private func handleLoaded(words: [UDWord], forceSingle: Bool = false) {
         let word = words.first!
-//        var words = words.filter({ $0.word.lowercased() == word.word.lowercased() })
+        
         if words.count > 1 && !forceSingle { wordsToPick = words; return }
         
         if let matching = words.first(where: { $0.defid == word.defid }) {
@@ -75,11 +64,9 @@ import SwiftUI
         }
     }
     
+    @MainActor
     func loadRandomWords() async {
-        let url = UrbanDictAPI.random.url
-        
         do {
-            
             randomWords = try await UrbanDictAPI.random.retrieve().list
             errorHappened = false
         }

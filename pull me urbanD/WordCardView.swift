@@ -66,19 +66,6 @@ struct WordCardView: View {
         
         let ranges = string.ranges(of: /\[([^\]]+)\]/)
         
-//        ranges.forEach { range in
-//            return
-//            let brackted = String(string[range])
-//            let bracketlessIndexes = string.index(range.lowerBound, offsetBy: 1)..<string.index(range.upperBound, offsetBy: -1)
-//            let bracketless = String(string[bracketlessIndexes])
-//
-//            let distToEdited = string.distance(from: live.firstRange(of: brackted)!.lowerBound, to: bracketlessIndexes.lowerBound)
-//
-//            let indexesToFormat = live.index(range.lowerBound, offsetBy: 0)..<string.index(range.upperBound, offsetBy: -2)
-//
-//            live = NSAttributedString(output).string
-//        }
-        
         ranges.forEach { range in
             let lowIndex = string.index(range.lowerBound, offsetBy: -offsetting)
             let upIndex = string.index(range.upperBound, offsetBy: -2 - offsetting)
@@ -114,7 +101,6 @@ struct WordCardView: View {
         }
         
         let len = max(minimumDelta, min(maximumDelta, val))
-        let delta = 1 - (len / deltaFactor)
         
         return .init(width: len, height: len)
         
@@ -135,7 +121,7 @@ struct WordCardView: View {
 
 struct WordCardView_Previews: PreviewProvider {
     
-    static let egWord = UDWord(defid: 679, word: "nice", definition: "this is a \"nice\" word", example: "WOW! This [word] is very nice", thumbsUp: 67567, thumbsDown: 2, currentVote: "", writtenOn: "2023-01-19T00:09:10.123Z", author: "swioft", permalink: ".downloadsDirectory")
+    static let egWord = UDWord(defid: 679, word: "nice", definition: "this is a \"nice\" word", example: "WOW! This [word] is very nice", thumbsUp: 67567, thumbsDown: 2, writtenOn: "2023-01-19T00:09:10.123Z", author: "swioft", permalink: ".downloadsDirectory")
     
     static var previews: some View {
         WordCardView(word: Self.egWord)

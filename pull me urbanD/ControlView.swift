@@ -30,14 +30,13 @@ struct ControlView: View {
                 Text("loading...")
             } else {
                 theWords
-                    .environment(\.openURL,  OpenURLAction(handler: vm.pop))
-                    .sheet(item: $vm.poppedWord) {
-//                        vm.poppedWord = nil
-                    } content: { popped in
+                    .environment(\.openURL, OpenURLAction(handler: vm.pop))
+                    .sheet(item: $vm.poppedWord) { popped in
                         WordCardView(word: popped, bordered: false)
-                            .environment(\.openURL,  OpenURLAction(handler: vm.pop))
+                            .environment(\.openURL, OpenURLAction(handler: vm.pop))
                             .padding()
-                            .presentationDetents([.height(400)])
+                            .presentationDetents([])
+                            .presentationCornerRadius(30)
                     }
                     .alert(isPresented: $showDisallowedWordsPrompt) {
                         Alert(title: Text("NOOOOO"), message: Text("this word is not allowed!\ndo NOT use that word again"), dismissButton: .default(Text("i'm sorry")))
