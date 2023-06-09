@@ -8,11 +8,12 @@
 import SwiftUI
 
 class ControlViewModel: ObservableObject {
-    @Published var randomWords = [UDWord]()
-    @Published var addedWords = [UDWord]()
     
-    @Published var errorHappened = false
+    // seperated so the user can tell which words they added
+    var randomWords = [UDWord]()
+    var addedWords = [UDWord]()
     
+    @Published var errorDescription: String?
     
     @Published var wordsToPick: [UDWord] = []
     @Published var poppedWord: UDWord?
@@ -35,13 +36,34 @@ class ControlViewModel: ObservableObject {
     func load(word: String, getAll: Bool = true) async {
         let apiCall = UrbanDictAPI.selected(word: word)
         
+        if word == ":word of the day:" {
+            let apiCall = UrbanDictAPI.wordsOfTheDay
+            guard let downloaded = try? await apiCall.retrieve().list else {
+                print("no word")
+                return
+            }
+            await handleLoaded(words: downloaded, forceSingle: !getAll)
+            return
+        }
+        
         guard let downloaded = try? await apiCall.retrieve() else {
             print("oh no")
             return
         }
-        handleLoaded(words: downloaded.list, forceSingle: !getAll)
-    }
         
+        // goes on the main acting thread as data is alreasy loaded
+        await handleLoaded(words: downloaded.list, forceSingle: !getAll)
+    }
+    
+    func load(id: Int) async {
+        let apiCall = UrbanDictAPI.unique(id: id)
+        guard let loaded = try? await apiCall.retrieve().list else {
+            print("oh no")
+            return
+        }
+        await handleLoaded(words: loaded, forceSingle: true)
+    }
+    
     func pop(url: URL) -> OpenURLAction.Result {
         DispatchQueue.main.async { [weak self] in
             Task(priority: .userInitiated) {
@@ -52,28 +74,27 @@ class ControlViewModel: ObservableObject {
         return .handled
     }
     
+    @MainActor
     private func handleLoaded(words: [UDWord], forceSingle: Bool = false) {
         let word = words.first!
         
         if words.count > 1 && !forceSingle { wordsToPick = words; return }
         
-        if let matching = words.first(where: { $0.defid == word.defid }) {
-            scrollToID = matching.defid
-        } else {
-            addedWords.insert(word, at: 0)
-        }
+        let matching = words.first(where: { $0.defid == word.defid })
+        insertSelected(newWord: matching)
     }
     
     @MainActor
     func loadRandomWords() async {
         do {
             randomWords = try await UrbanDictAPI.random.retrieve().list
-            errorHappened = false
+            errorDescription = nil
         }
         catch {
-            errorHappened = true
+            errorDescription = error.localizedDescription
         }
     }
+    
     
     func insertSelected(newWord: UDWord?) {
         guard let newWord else { return }

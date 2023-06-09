@@ -35,6 +35,11 @@ struct UDWord: Codable, Identifiable, Equatable {
     var overallVotes: Int {
         thumbsUp - thumbsDown
     }
+    
+    var votingRatio: Double {
+        // rather than "Double(thumbsUp / thumbsDown)" for more accuracy
+        Double(thumbsUp) / Double(thumbsDown)
+    }
 }
 
 struct ResponseFromUD: Decodable {

@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ControlView: View {
     
-//    @Environment(\.openURL) var urlHandler
-    
     @StateObject var vm = ControlViewModel()
     
     @State private var selectedWord = ""
@@ -20,12 +18,18 @@ struct ControlView: View {
     @State private var lineGradFlipped = false
     @State private var lineGradColors: [Color] = [.blue, .cyan, .mint, .yellow]
     
-    @State private var showDisallowedWordsPrompt = false
+    @State private var showDisallowedWordAlert = false
+    
+    struct WorderManager {
+        var searchTerm = ""
+        var showingWordPicker = false
+        var selectedWordFromPicker: UDWord?
+    }
     
     var body: some View {
         VStack {
-            if vm.errorHappened {
-                errorDisplay
+            if let errorDescription = vm.errorDescription {
+                error(description: errorDescription)
             } else if vm.words.count == 0 {
                 Text("loading...")
             } else {
@@ -35,10 +39,10 @@ struct ControlView: View {
                         WordCardView(word: popped, bordered: false)
                             .environment(\.openURL, OpenURLAction(handler: vm.pop))
                             .padding()
-                            .presentationDetents([])
+                            .presentationDetents([.fraction(0.35), .large])
                             .presentationCornerRadius(30)
                     }
-                    .alert(isPresented: $showDisallowedWordsPrompt) {
+                    .alert(isPresented: $showDisallowedWordAlert) {
                         Alert(title: Text("NOOOOO"), message: Text("this word is not allowed!\ndo NOT use that word again"), dismissButton: .default(Text("i'm sorry")))
                     }
             }
@@ -57,7 +61,7 @@ struct ControlView: View {
                 .textFieldStyle(.roundedBorder).padding()
                 .onSubmit {
                     if vm.censored && vm.censoredWords.contains(selectedWord) {
-                        showDisallowedWordsPrompt = true
+                        showDisallowedWordAlert = true
                         return
                     }
                     
@@ -99,10 +103,12 @@ struct ControlView: View {
         .onChange(of: selectedWordFromPicker, perform: vm.insertSelected)
     }
     
-    private var errorDisplay: some View {
+    func error(description: String) -> some View {
         VStack {
             Spacer()
             Text("oh no")
+            Text(description)
+                .font(.caption)
             Spacer()
             Button("try again") {
                 Task { await vm.loadRandomWords() }
@@ -111,7 +117,7 @@ struct ControlView: View {
     }
     
     private func refreshWords() async {
-        vm.errorHappened = false
+        vm.errorDescription = nil
         vm.randomWords.removeAll()
         await vm.loadRandomWords()
     }

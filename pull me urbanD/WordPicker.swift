@@ -11,6 +11,8 @@ struct WordPicker: View {
     let wordsToPick: [UDWord]
     @Binding var selectedWord: UDWord?
     
+    var customHeader: String?
+    
     var sortedWords: [UDWord] {
         wordsToPick.sorted { lhs, rhs in
             lhs.overallVotes > rhs.overallVotes
@@ -19,9 +21,15 @@ struct WordPicker: View {
     
     var body: some View {
         VStack {
-            Text("select a definition for **\(sortedWords.first!.word)**")
-                .font(.title)
-                .padding()
+            if let customHeader {
+                Text(customHeader)
+                    .font(.title3)
+                    .padding()
+            } else {
+                Text("select a definition for **\(sortedWords.first!.word)**")
+                    .font(.title)
+                    .padding()
+            }
             wordScroll
         }
     }

@@ -8,10 +8,17 @@
 import Foundation
 
 enum UrbanDictAPI {
+    /*
+     see link to spec at:
+     https://github.com/urbandictionary-api/spec/blob/main/urbandictionary-api.yaml
+     */
+    
     case random
     case selected(word: String)
+    case unique(id: Int)
+    case wordsOfTheDay
     
-    var url: URL {
+    public var url: URL {
         var c = URLComponents()
         c.scheme = "https"
         c.host = "api.urbandictionary.com"
@@ -25,21 +32,25 @@ enum UrbanDictAPI {
         switch self {
         case .random:
             return "/v0/random"
-        case .selected:
+        case .selected, .unique:
             return "/v0/define"
+        case .wordsOfTheDay:
+            return "/v0/words_of_the_day"
         }
     }
     
     private var query: URLQueryItem? {
         switch self {
-        case .random:
+        case .random, .wordsOfTheDay:
             return nil
         case .selected(let word):
             return .init(name: "term", value: word)
+        case .unique(id: let id):
+            return .init(name: "defid", value: String(id))
         }
     }
     
-    func retrieve() async throws -> ResponseFromUD {
+    public func retrieve() async throws -> ResponseFromUD {
         try await UrbanDictAPI.retrieve(using: url)
     }
     
