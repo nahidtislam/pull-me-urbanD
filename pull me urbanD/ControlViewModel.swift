@@ -41,7 +41,7 @@ class ControlViewModel: ObservableObject {
             return
         }
         
-        // goes on the main acting thread as data is alreasy loaded
+        // goes on the main acting thread as data is already loaded
         await handleLoaded(words: downloaded.list, forceSingle: !getAll)
     }
     

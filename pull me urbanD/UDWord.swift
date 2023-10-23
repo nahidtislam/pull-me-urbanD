@@ -17,7 +17,6 @@ struct UDWord: Codable, Identifiable, Equatable {
     
     let thumbsUp: Int
     let thumbsDown: Int
-//    let currentVote: String // why's this a string
     
     let writtenOn: String
     

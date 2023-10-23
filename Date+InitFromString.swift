@@ -8,6 +8,10 @@
 import Foundation
 
 extension Date {
+    /// Create a date converted from a string based on a format
+    /// - Parameters:
+    ///   - stringValue: the value to convert from
+    ///   - format: the format to convert the value from. The default is `yyyy-MM-dd HH:mm:ss Z` as printing a date value is in that format
     init?(_ stringValue: String,
           withFormat format: String = "yyyy-MM-dd HH:mm:ss Z") {
         

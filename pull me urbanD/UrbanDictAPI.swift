@@ -45,7 +45,7 @@ enum UrbanDictAPI {
             return nil
         case .selected(let word):
             return .init(name: "term", value: word)
-        case .unique(id: let id):
+        case .unique(let id):
             return .init(name: "defid", value: String(id))
         }
     }
