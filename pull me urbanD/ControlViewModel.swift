@@ -36,16 +36,6 @@ class ControlViewModel: ObservableObject {
     func load(word: String, getAll: Bool = true) async {
         let apiCall = UrbanDictAPI.selected(word: word)
         
-        if word == ":word of the day:" {
-            let apiCall = UrbanDictAPI.wordsOfTheDay
-            guard let downloaded = try? await apiCall.retrieve().list else {
-                print("no word")
-                return
-            }
-            await handleLoaded(words: downloaded, forceSingle: !getAll)
-            return
-        }
-        
         guard let downloaded = try? await apiCall.retrieve() else {
             print("oh no")
             return
